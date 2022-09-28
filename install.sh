@@ -31,7 +31,7 @@ php wp-cli.phar --info
 chmod +x wp-cli.phar
 sudo mv wp-cli.phar /usr/local/bin/wp
 
-# Snaps Installs
+# Install packages with snap
 sudo snap install spotify
 sudo snap install discord
 sudo snap install postman
@@ -47,7 +47,7 @@ sudo snap install lotion
 sudo snap install photogimp
 sudo snap install code --classic
 
-# Plugins VS Code
+# Install Extensions to vscode and configure themes
 code --install-extension adobe.xd
 code --install-extension anthonydiametrix.ACF-Snippet
 code --install-extension bmewburn.vscode-intelephense-client
@@ -102,7 +102,7 @@ code --install-extension Zignd.html-css-class-completion
 # Config PHP Code Sniffer
 composer global require squizlabs/php_codesniffer
 
-# ZSH
+# Setting to Terminal to use the ohmyzsh, which is the default.
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md
 https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md#oh-my-zsh
