@@ -1,12 +1,28 @@
 # Update
-sudo apt update & sudo apt upgrade -y sudo apt autoremove
+sudo apt update & sudo apt upgrade -y 
+# Remove o Apache2
+sudo apt remove apache2
+sudo apt autoremove
 
-sudo apt install zip unzip ssh git wget curl nodejs npm zsh composer docker docker-compose transmission inkscape scribus snapd php php-xmlwriter obs-studio filezilla vlc znes
+sudo apt install vim zip unzip ssh git wget curl net-tools nodejs npm zsh docker docker-compose transmission inkscape scribus snapd filezilla znes nginx obs-studio usb-creator-gtk software-properties-common libpam0g:i386 libx11-6:i386 libstdc++6:i386 libstdc++5:i386 libnss3-tools klavaro
+sudo systemctl status nginx
+sudo ufw allow 'Nginx Full'
+sudo ufw status
 
 #Zeal
 sudo add-apt-repository ppa:zeal-developers/ppa
 sudo apt update
-sudo apt install zeal
+sudo apt install zeal -y
+
+#Enabling PHP Repository #
+sudo add-apt-repository ppa:ondrej/php
+sudo apt update
+sudo apt install php php-curl libapache2-mod-php php-fpm php-mysql php-gd
+sudo systemctl restart nginx
+
+#Install Composer
+curl -sS https://getcomposer.org/installer -o composer-setup.php
+sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
 # Install Google Chrome
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -113,15 +129,15 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githu
 sudo apt update
 sudo apt install gh
 
-# Remove o Apache2
-sudo apt remove apache2
-
 # Docker Configs
 sudo addgroup --system docker
 sudo adduser $USER docker
 newgrp docker
 sudo snap disable docker
 sudo snap enable docker
+
+#Generate SSH Key
+ssh-keygen
 
 #Update Finally
 sudo apt update & sudo apt upgrade -y sudo apt autoremove
